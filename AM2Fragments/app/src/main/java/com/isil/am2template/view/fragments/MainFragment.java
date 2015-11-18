@@ -1,12 +1,14 @@
 package com.isil.am2template.view.fragments;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.isil.am2template.R;
@@ -24,6 +26,7 @@ public class MainFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+    private View rlayBg;
 
     private OnFragmentListener mListener;
     public MainFragment() {
@@ -41,13 +44,36 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        View v=  inflater.inflate(R.layout.fragment_main, container, false);
+        rlayBg= v.findViewById(R.id.rlayBg);
+        return v;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        Log.v(TAG, "rlayContainer "+rlayBg);
     }
 
     public void hello()
     {
         Log.v(TAG, "hello");
         Toast.makeText(getActivity(), "Hola Main Fragment ", Toast.LENGTH_LONG).show();
+    }
+
+    public void connected(boolean status)
+    {
+        if(status)
+        {
+            Log.v(TAG, "status connected");
+            rlayBg.setBackgroundColor(Color.GREEN);
+        }else
+        {
+            Log.v(TAG, "status lost");
+            rlayBg.setBackgroundColor(Color.RED);
+        };
+
     }
 
     @Override
