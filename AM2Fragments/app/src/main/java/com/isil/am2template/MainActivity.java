@@ -7,12 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.isil.am2template.view.OnFragmentListener;
-import com.isil.am2template.view.fragments.MainActivityFragment;
+import com.isil.am2template.view.fragments.MainFragment;
 
 
 public class MainActivity extends ActionBarActivity implements OnFragmentListener {
 
-    private MainActivityFragment fragmentA;
+    private MainFragment fragmentA;
     private FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class MainActivity extends ActionBarActivity implements OnFragmentListene
         setContentView(R.layout.activity_main);
 
         fragmentManager= getSupportFragmentManager();
-        fragmentA= (MainActivityFragment)fragmentManager.findFragmentById(R.id.fragmentA);
+        fragmentA= (MainFragment)fragmentManager.findFragmentById(R.id.fragmentA);
         if(fragmentA!=null)
         {
             fragmentA.hello();

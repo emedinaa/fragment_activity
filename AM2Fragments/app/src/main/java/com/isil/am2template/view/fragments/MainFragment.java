@@ -16,7 +16,7 @@ import com.isil.am2template.view.OnFragmentListener;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainActivityFragment extends Fragment {
+public class MainFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -26,11 +26,11 @@ public class MainActivityFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentListener mListener;
-    public MainActivityFragment() {
+    public MainFragment() {
     }
 
-    public static MainActivityFragment newInstance(String param1, String param2) {
-        MainActivityFragment fragment = new MainActivityFragment();
+    public static MainFragment newInstance(String param1, String param2) {
+        MainFragment fragment = new MainFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
